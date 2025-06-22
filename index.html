@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Organização Financeira</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="inicio">
+            <button id="toggleTema" class="btn-tema">🌙 Tema</button>
+            <h1>Bem Vindo ao Jobank</h1>
+            <p>O banco que organiza o seu dinheiro</p>
+            <a href="#organizacao">Planejar</a>
+        </div>
+        <div id="organizacao">
+
+            <header>
+                <div class="acao fase" onclick="selecionar(this)" data-index="0">O que fazer com o dinheiro</div>
+                <div class="emergencia fase" onclick="selecionar(this)" data-index="1">Extrato</div>
+                <div class="conclusao fase" onclick="selecionar(this)" data-index="2">Conclusão</div>
+
+            </header>
+
+            <div class="item acao active">
+                <div class="opcao">
+                    <h1>Qual opção de celular você optou por comprar?</h1>
+                    <select id="escolha_celular">
+                        <option value="" data-index="100"></option>
+                        <option value="" data-index="0">REDMAGIC 10 Air - R$ 3.899,00</option>
+                        <option value="" data-index="1">IPhone 11 Usado - R$ 1.862,10</option>
+                        <option value="" data-index="2">Redmi 13C - R$ 1.300,00</option>
+                        <option value="" data-index="3">Samsung A06 - R$ 699,90</option>
+                    </select>
+                    <button onclick="confirmarEscolha()" id="confirmar_escolha">Confirmar</button>
+                    <p id="resultado_escolha">Te restou <span>R$</span><span id="local_result"></span> para viver até
+                        seu próximo pagamento.</p>
+                    <div class="celular um"> 
+                        <!--https://br.redmagic.gg/products/redmagic-10-air-->
+                        <img src="img/celular_um.webp.jpg" alt="">
+                        <div class="content">
+                            <h2>REDMAGIC 10 Air</h2>
+                            <p>R$ 3.899,00</p>
+                        </div>
+                    </div>
+                    <div class="celular dois">
+                        <!--https://www.casasbahia.com.br/usado-iphone-11-128gb-branco-muito-bom-trocafone/p/1557744086?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
+                        <img src="img/celular_dois.avif.jpg" alt="">
+                        <div class="content">
+                            <h2>IPhone 11 Usado</h2>
+                            <p>R$ 1.862,10</p>
+                        </div>
+                    </div>
+                    <div class="celular tres">
+                        <!--https://www.casasbahia.com.br/smartphone-samsung-a06-a065-128gb-4g/p/1571665783?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
+                        <img src="img/celular_tres.webp.jpg" alt="">
+                        <div class="content">
+                            <h2>Redmi 13C</h2>
+                            <p>R$ 1.300,00</p>
+                        </div>
+                    </div>
+                    <div class="celular quatro">
+                        <!--https://www.casasbahia.com.br/smartphone-samsung-a06-a065-128gb-4g/p/1571665783?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
+                        <img src="img/celular_quatro.webp.jpg" alt="">
+                        <div class="content">
+                            <h2>Samsung A06</h2>
+                            <p>R$ 699,90</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line"></div>
+
+                <div class="investimentos">
+                    <div class="opcoes_investimentos">
+
+                        <div class="investimento_item">
+                            <img src="img/porco.jpeg.jpg" alt="">
+                            <h1>Tesouro Selic</h1> <!--nome do investimento-->
+                            <p>Baixo Risco</p> <!--valor minimo do investimento-->
+                            <button data-index="0">Saiba Mais</button>
+                        </div>
+
+                        <div class="investimento_item">
+                            <img src="img/porco.jpeg.jpg" alt="">
+                            <h1>Fundos Imobiliários</h1> <!--nome do investimento-->
+                            <p>Médio Risco</p> <!--valor minimo do investimento-->
+                            <button data-index="1">Saiba Mais</button>
+                        </div>
+
+                        <div class="investimento_item">
+                            <img src="img/porco.jpeg.jpg" alt="">
+                            <h1>Ações</h1> <!--nome do investimento-->
+                            <p>Alto Risco</p> <!--valor minimo do investimento-->
+                            <button data-index="2">Saiba Mais</button>
+                        </div>
+
+
+                    </div>
+
+                    <div class="list_interface_investimento">
+                        <div class="interface_investimento_item baixo">
+
+                            <div class="informacoes_investimento">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/delete-sign--v1.png"
+                                    alt="delete-sign--v1" class="close" onclick="fecharInformacoes()" />
+
+                                <div class="content">
+                                    <div class="saldo">
+                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span> </span></p>
+                                    </div>
+
+                                    <div class="sobre">
+                                        <h1>Tesouro Selic 2028</h1>
+                                        <div class="line"></div>
+                                        <div class="vencimento_taxa">
+                                            <p class="vencimento">Vencimento 01/03/2028</p>
+                                            <p>SELIC + 0,05% (a.a)</p>
+                                        </div>
+                                        <div class="line"></div>
+
+                                        <div class="garantia">
+                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/5AF346/guarantee.png" alt="guarantee"/>
+                                            <P>GARANTIDO PELO TESOURO NACIONAL</P>
+                                        </div>
+                                    </div>
+
+                                    <div class="investir">
+                                        <h1>Quanto você quer investir</h1>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                    </div>
+
+                                    <button class="confirmar_investimento">Investir</button>
+
+                                    <div class="investimento_resposta">
+                                        <h2 class="mensagem_resultado"></h2>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="interface_investimento_item medio">
+                            <div class="informacoes_investimento">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/delete-sign--v1.png"
+                                    alt="Fechar" class="close" onclick="fecharInformacoes()" />
+
+                                <div class="content">
+                                    <div class="saldo">
+                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span></span></p>
+                                    </div>
+
+                                    <div class="sobre">
+                                        <h1>Fundo Imobiliário - KNRI11</h1>
+                                        <div class="line"></div>
+                                        <div class="vencimento_taxa">
+                                            <p class="vencimento">Pagamento Mensal</p>
+                                            <p>Rentabilidade média 0,6% a.m (variável)</p>
+                                        </div>
+                                        <div class="line"></div>
+
+                                        <div class="garantia">
+                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFA500/city.png" alt="city"/>
+                                            <p>SEM GARANTIA - Renda Variável</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="investir">
+                                        <h1>Quanto você quer investir</h1>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                    </div>
+
+                                    <button class="confirmar_investimento">Investir</button>
+
+
+                                    <div class="investimento_resposta">
+                                        <h2 class="mensagem_resultado"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="interface_investimento_item alto">
+                            <div class="informacoes_investimento">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/delete-sign--v1.png"
+                                    alt="delete-sign--v1" class="close" onclick="fecharInformacoes()" />
+
+                                <div class="content">
+                                    <div class="saldo">
+                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span></span></p>
+                                    </div>
+
+                                    <div class="sobre">
+                                        <h1>Ação - Petrobras (PETR3)</h1>
+                                        <div class="line"></div>
+                                        <div class="vencimento_taxa">
+                                            <p class="vencimento">Liquidez diária</p>
+                                            <p>Rentabilidade imprevisível (alta volatilidade)</p>
+                                        </div>
+                                        <div class="line"></div>
+
+                                        <div class="garantia">
+                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FF0000/stock.png" alt="stock"/>
+                                            <p>SEM GARANTIA - Renda Variável</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="investir">
+                                        <h1>Quanto você quer investir</h1>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                    </div>
+
+                                    <button class="confirmar_investimento">Investir</button>
+
+
+                                    <div class="investimento_resposta">
+                                        <h2 class="mensagem_resultado"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXTRATO -->
+            <div class="item extrato">
+                <h2>Extrato de Transações</h2>
+                <p class="subtitulo">Abaixo estão listadas as transações realizadas nesta simulação.</p>
+
+                <div class="extrato-box">
+                    <h3>Extrato:</h3>
+                    <ul id="lista_gastos_real"></ul>
+                    <p id="total_gastos_real">Total Gasto: R$ 0,00</p>
+                </div>
+
+                <button onclick="gerarExtrato()">Gerar Extrato</button>
+            </div>
+
+            <!-- CONCLUSÃO -->
+            <div class="item conclusao">
+                <h2>Conclusão</h2>
+                <p class="subtitulo">Abaixo está a análise feita pelo Jobank com base nas suas escolhas:</p>
+                <button onclick="gerarConclusao()">Gerar Conclusão</button>
+                <div class="texto-conclusao" id="texto_conclusao">
+                    <!-- A análise vai aparecer aqui -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
