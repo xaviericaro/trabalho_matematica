@@ -1,4 +1,5 @@
 * {
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,6 +8,10 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 .inicio {
@@ -59,7 +64,7 @@ html {
 
 #organizacao {
     height: 100vh;
-    background-color: rgb(112, 112, 99);
+    background-color: rgb(41, 41, 37);
 
 }
 
@@ -119,6 +124,7 @@ html {
 
 .item .opcao img {
     width: 170px;
+    height: 65%;
     background-color: white;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -199,14 +205,13 @@ html {
 #resultado_escolha {
     position: absolute;
     top: 138vh;
-    left: 40px;
+    left: 180px;
     padding: 10px 15px;
     border-radius: 20px;
     background-color: black;
     color: #ffffff;
     font-weight: 700;
     font-size: 18px;
-    display: none;
 }
 
 #resultado_escolha span {
@@ -220,54 +225,57 @@ html {
     height: 1px;
 }
 
-.investimentos {
+#investimentos {
     width: 100%;
     padding-top: 8px;
+    visibility: hidden;
 }
 
-.investimentos .opcoes_investimentos {
+#investimentos .opcoes_investimentos {
     width: 80%;
-    margin: -20px auto 0;
+    margin: -35px auto 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
 
-.investimentos .opcoes_investimentos .investimento_item {
+#investimentos .opcoes_investimentos .investimento_item {
     width: 70%;
     margin: auto;
-    background-color: rgb(160, 160, 160);
+    background-color: rgb(19, 83, 78);
     height: 41.7vh;
     padding: 10px;
     border-radius: 10px;
 
 }
 
-.investimentos .opcoes_investimentos .investimento_item:hover {
+#investimentos .opcoes_investimentos .investimento_item:hover {
     transform: translateY(-20px);
     transition: 0.6s;
     transform: scale(1.08);
 }
 
-.investimentos .opcoes_investimentos .investimento_item img {
+#investimentos .opcoes_investimentos .investimento_item img {
     width: 100%;
+    height: 70%;
     border: 1px solid #000000;
+    border-radius: 10px;
 }
 
-.investimentos .opcoes_investimentos .investimento_item h1 {
+#investimentos .opcoes_investimentos .investimento_item h1 {
     font-size: 19px;
     text-align: center;
     padding-bottom: 8px;
 }
 
-.investimentos .opcoes_investimentos .investimento_item p {
+#investimentos .opcoes_investimentos .investimento_item p {
     font-size: 17px;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: 900;
 }
 
-.investimentos .opcoes_investimentos .investimento_item button {
+#investimentos .opcoes_investimentos .investimento_item button {
     width: 100%;
     padding: 7px;
     font-size: 20px;
@@ -277,11 +285,11 @@ html {
     color: #000000;
     cursor: pointer;
     outline: none;
-    margin-top: 5px;
+    margin-top: 1px;
     font-weight: 600;
 }
 
-.investimentos .opcoes_investimentos .investimento_item button:hover {
+#investimentos .opcoes_investimentos .investimento_item button:hover {
     color: white;
     transition: 0.7s;
 }
@@ -507,11 +515,38 @@ html {
 #total_gastos_real {
     font-weight: bold;
     font-size: 20px;
-    color: rgb(41, 172, 161);
+    color: rgb(172, 61, 41);
     margin-top: 10px;
     border-top: 1px solid #3a3a3a;
     padding-top: 10px;
     text-align: right;
+}
+
+#total_resto_real {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(103, 190, 32);
+    margin-top: 3px;
+    padding-top: 10px;
+    text-align: right;
+}
+
+#extrato {
+    position: relative;
+    left: 43%;
+    border: rgb(90, 88, 88) 1px solid;
+    color: white;
+    font-weight: 700;
+    background-color: rgb(19, 83, 78);
+    padding: 12px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#extrato:hover {
+    background-color: black;
+    transition: 0.7s;
+    box-shadow: 2px 2px 15px 0 rgba(41, 172, 161, 0.699);
 }
 
 /* Conclusão - igualzinho ao Extrato */
@@ -591,18 +626,18 @@ html {
 }
 
 body.tema-claro .texto-conclusao {
-    background-color: #f0f0f5 !important; 
+    background-color: #f0f0f5 !important;
     color: #111 !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
 }
 
 body.tema-claro {
-    background-color: #fafafa; 
+    background-color: #fafafa;
     color: #111;
 }
 
 body.tema-claro #organizacao {
-    background-color: #e8e8e8 !important; 
+    background-color: #e8e8e8 !important;
 }
 
 body.tema-claro #organizacao header div {
@@ -625,7 +660,7 @@ body.tema-claro #organizacao header div.ativo {
 body.tema-claro #organizacao .item {
     background-color: #fff !important;
     color: #111 !important;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
 }
 
@@ -695,7 +730,8 @@ body.tema-claro #lista_gastos_real li:hover {
         height: auto;
     }
 
-    #escolha_celular, #confirmar_escolha {
+    #escolha_celular,
+    #confirmar_escolha {
         position: static;
         display: block;
         margin: 20px auto;
@@ -708,11 +744,11 @@ body.tema-claro #lista_gastos_real li:hover {
         width: 90%;
     }
 
-    .investimentos .opcoes_investimentos {
+    #investimentos .opcoes_investimentos {
         grid-template-columns: 1fr;
     }
 
-    .investimentos .opcoes_investimentos .investimento_item {
+    #investimentos .opcoes_investimentos .investimento_item {
         width: 90%;
         height: auto;
     }
@@ -721,4 +757,65 @@ body.tema-claro #lista_gastos_real li:hover {
         padding: 20px;
         font-size: 16px;
     }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(41, 172, 161, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 10px rgba(41, 172, 161, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(41, 172, 161, 0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#resultado_escolha {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.investimento_item {
+    animation: zoomIn 0.5s ease-in;
+}
+
+.interface_investimento_item.informar {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.item.active {
+    animation: fadeIn 0.5s ease-in;
+}
+
+#confirmar_escolha:hover {
+    animation: pulse 1s ease infinite;
+}
+
+.extrato, .texto-conclusao {
+    animation: fadeIn 0.7s ease-out;
 }

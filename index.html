@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Organização Financeira</title>
 </head>
@@ -31,69 +36,64 @@
                     <h1>Qual opção de celular você optou por comprar?</h1>
                     <select id="escolha_celular">
                         <option value="" data-index="100"></option>
-                        <option value="" data-index="0">REDMAGIC 10 Air - R$ 3.899,00</option>
-                        <option value="" data-index="1">IPhone 11 Usado - R$ 1.862,10</option>
-                        <option value="" data-index="2">Redmi 13C - R$ 1.300,00</option>
-                        <option value="" data-index="3">Samsung A06 - R$ 699,90</option>
+                        <option value="" data-index="0">Apple IPhone 16 - R$ 6.999,00</option>
+                        <option value="" data-index="1">Redmi 13C - R$ 3.450,00</option>
+                        <option value="" data-index="2">Samsung A06 - R$ 1.370,00</option>
                     </select>
                     <button onclick="confirmarEscolha()" id="confirmar_escolha">Confirmar</button>
-                    <p id="resultado_escolha">Te restou <span>R$</span><span id="local_result"></span> para viver até
-                        seu próximo pagamento.</p>
-                    <div class="celular um"> 
-                        <!--https://br.redmagic.gg/products/redmagic-10-air-->
-                        <img src="img/celular_um.webp.jpg" alt="">
-                        <div class="content">
-                            <h2>REDMAGIC 10 Air</h2>
-                            <p>R$ 3.899,00</p>
-                        </div>
-                    </div>
+                    <p id="resultado_escolha">Saldo Atual: R$ 7500.00</p>
+
                     <div class="celular dois">
                         <!--https://www.casasbahia.com.br/usado-iphone-11-128gb-branco-muito-bom-trocafone/p/1557744086?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
-                        <img src="img/celular_dois.avif.jpg" alt="">
+                        <img src="img/celular_um.png" alt="">
                         <div class="content">
-                            <h2>IPhone 11 Usado</h2>
-                            <p>R$ 1.862,10</p>
+                            <h2>Apple iPhone 16</h2>
+                            <p>R$ 6.999,00</p>
                         </div>
                     </div>
                     <div class="celular tres">
                         <!--https://www.casasbahia.com.br/smartphone-samsung-a06-a065-128gb-4g/p/1571665783?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
-                        <img src="img/celular_tres.webp.jpg" alt="">
+                        <img src="img/celular_tres.avif" alt="">
                         <div class="content">
                             <h2>Redmi 13C</h2>
-                            <p>R$ 1.300,00</p>
+                            <p>R$ 3.450,00</p>
                         </div>
                     </div>
                     <div class="celular quatro">
                         <!--https://www.casasbahia.com.br/smartphone-samsung-a06-a065-128gb-4g/p/1571665783?utm_source=Google&utm_medium=BuscaOrganica&utm_campaign=DescontoEspecial-->
-                        <img src="img/celular_quatro.webp.jpg" alt="">
+                        <img src="img/celular_quatro.webp" alt="">
                         <div class="content">
                             <h2>Samsung A06</h2>
-                            <p>R$ 699,90</p>
+                            <p>R$ 1.370,00</p>
                         </div>
+                    </div>
+
+                    <div class="saldo_principal">
+                        <p id="saldo_principal"></p>
                     </div>
 
                 </div>
                 <div class="line"></div>
 
-                <div class="investimentos">
+                <div id="investimentos">
                     <div class="opcoes_investimentos">
 
                         <div class="investimento_item">
-                            <img src="img/porco.jpeg.jpg" alt="">
+                            <img src="img/selic.jpg" alt="">
                             <h1>Tesouro Selic</h1> <!--nome do investimento-->
                             <p>Baixo Risco</p> <!--valor minimo do investimento-->
                             <button data-index="0">Saiba Mais</button>
                         </div>
 
                         <div class="investimento_item">
-                            <img src="img/porco.jpeg.jpg" alt="">
+                            <img src="img/fundos.jpg" alt="">
                             <h1>Fundos Imobiliários</h1> <!--nome do investimento-->
                             <p>Médio Risco</p> <!--valor minimo do investimento-->
                             <button data-index="1">Saiba Mais</button>
                         </div>
 
                         <div class="investimento_item">
-                            <img src="img/porco.jpeg.jpg" alt="">
+                            <img src="img/acoes.jpg" alt="">
                             <h1>Ações</h1> <!--nome do investimento-->
                             <p>Alto Risco</p> <!--valor minimo do investimento-->
                             <button data-index="2">Saiba Mais</button>
@@ -111,7 +111,8 @@
 
                                 <div class="content">
                                     <div class="saldo">
-                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span> </span></p>
+                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span>
+                                            </span></p>
                                     </div>
 
                                     <div class="sobre">
@@ -124,14 +125,17 @@
                                         <div class="line"></div>
 
                                         <div class="garantia">
-                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/5AF346/guarantee.png" alt="guarantee"/>
+                                            <img width="25" height="25"
+                                                src="https://img.icons8.com/ios-filled/50/5AF346/guarantee.png"
+                                                alt="guarantee" />
                                             <P>GARANTIDO PELO TESOURO NACIONAL</P>
                                         </div>
                                     </div>
 
                                     <div class="investir">
                                         <h1>Quanto você quer investir</h1>
-                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir"
+                                                placeholder="00.00"></h2>
                                     </div>
 
                                     <button class="confirmar_investimento">Investir</button>
@@ -151,7 +155,8 @@
 
                                 <div class="content">
                                     <div class="saldo">
-                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span></span></p>
+                                        <p><span>Saldo em Conta</span> <span>R$<span
+                                                    class="saldo_em_conta"></span></span></p>
                                     </div>
 
                                     <div class="sobre">
@@ -164,14 +169,16 @@
                                         <div class="line"></div>
 
                                         <div class="garantia">
-                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFA500/city.png" alt="city"/>
+                                            <img width="25" height="25"
+                                                src="https://img.icons8.com/ios-filled/50/FFA500/city.png" alt="city" />
                                             <p>SEM GARANTIA - Renda Variável</p>
                                         </div>
                                     </div>
 
                                     <div class="investir">
                                         <h1>Quanto você quer investir</h1>
-                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir"
+                                                placeholder="00.00"></h2>
                                     </div>
 
                                     <button class="confirmar_investimento">Investir</button>
@@ -183,7 +190,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="interface_investimento_item alto">
                             <div class="informacoes_investimento">
@@ -192,7 +199,8 @@
 
                                 <div class="content">
                                     <div class="saldo">
-                                        <p><span>Saldo em Conta</span> <span>R$<span class="saldo_em_conta"></span></span></p>
+                                        <p><span>Saldo em Conta</span> <span>R$<span
+                                                    class="saldo_em_conta"></span></span></p>
                                     </div>
 
                                     <div class="sobre">
@@ -205,14 +213,17 @@
                                         <div class="line"></div>
 
                                         <div class="garantia">
-                                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FF0000/stock.png" alt="stock"/>
+                                            <img width="32" height="32"
+                                                src="https://img.icons8.com/windows/32/FF0000/stocks-growth.png"
+                                                alt="stocks-growth" />
                                             <p>SEM GARANTIA - Renda Variável</p>
                                         </div>
                                     </div>
 
                                     <div class="investir">
                                         <h1>Quanto você quer investir</h1>
-                                        <h2><span>R$ </span><input type="number" class="valor_a_investir" placeholder="00.00"></h2>
+                                        <h2><span>R$ </span><input type="number" class="valor_a_investir"
+                                                placeholder="00.00"></h2>
                                     </div>
 
                                     <button class="confirmar_investimento">Investir</button>
@@ -237,9 +248,10 @@
                     <h3>Extrato:</h3>
                     <ul id="lista_gastos_real"></ul>
                     <p id="total_gastos_real">Total Gasto: R$ 0,00</p>
+                    <p id="total_resto_real">Total Restante: R$ 0,00</p>
                 </div>
 
-                <button onclick="gerarExtrato()">Gerar Extrato</button>
+                <button onclick="gerarExtrato()" id="extrato">Gerar Extrato</button>
             </div>
 
             <!-- CONCLUSÃO -->

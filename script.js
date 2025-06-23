@@ -1,21 +1,20 @@
 let botoes = document.querySelectorAll(".fase");
 let itens = document.querySelectorAll(".item");
 let celulares = document.querySelectorAll(".celular");
-let money = 3200;
-let saldo_restante = 0;
+let money = 7500;
+let saldo_restante = 7500;
 let valor_celular = 0;
 let valor_investido = 0;
-let saldo_em_conta = document.querySelector(".saldo_em_conta");
 let celularComprado = null;
 let investimentosFeitos = [];
 
 function selecionar(clicado) {
-  botoes.forEach(botao => botao.classList.remove("active")); 
-  clicado.classList.add("active"); 
-  
+  botoes.forEach(botao => botao.classList.remove("active"));
+  clicado.classList.add("active");
+
   let index_fase = clicado.dataset.index;
-  itens.forEach(item => item.classList.remove("active")); 
-  itens[index_fase].classList.add("active"); 
+  itens.forEach(item => item.classList.remove("active"));
+  itens[index_fase].classList.add("active");
 }
 
 function confirmarEscolha() {
@@ -31,36 +30,34 @@ function confirmarEscolha() {
     celulares[index_celular].style.visibility = "visible";
   }
 
-  let resultado = document.getElementById("resultado_escolha");
-  ;
-
   if (index_celular == 0) {
-  valor_celular = 3899;
-  celularComprado = { nome: "REDMAGIC 10 Air", valor: valor_celular };
-} else if (index_celular == 1) {
-  valor_celular = 1862.10;
-  celularComprado = { nome: "iPhone 11 Usado", valor: valor_celular };
-} else if (index_celular == 2) {
-  valor_celular = 1300;
-  celularComprado = { nome: "Redmi 13C", valor: valor_celular };
-} else if (index_celular == 3) {
-  valor_celular = 699.99;
-  celularComprado = { nome: "Samsung A06", valor: valor_celular };
-} else {
+    valor_celular = 6999;
+    celularComprado = { nome: "iPhone 16", valor: valor_celular };
+  } else if (index_celular == 1) {
+    valor_celular = 3450;
+    celularComprado = { nome: "Redmi 13C", valor: valor_celular };
+  } else if (index_celular == 2) {
+    valor_celular = 1370;
+    celularComprado = { nome: "Samsung A06", valor: valor_celular };
+  } else {
     celulares.forEach(celular => {
       celular.style.visibility = "visible";
     });
     return;
   }
 
-  let local_result = document.getElementById("local_result");
   saldo_restante = money - valor_celular;
-  local_result.innerText = saldo_restante;
-  resultado.style.display = "block";
+
+  let resultado = document.getElementById("resultado_escolha");
+  resultado.innerHTML = `Saldo Atual R$ ${saldo_restante.toFixed(2)}`;
+  
 
   if (index_celular == 100) {
     resultado.style.display = "none";
   }
+
+  let investimentos = document.getElementById("investimentos");
+  investimentos.style.visibility = "visible";
 }
 
 document.querySelectorAll(".investimento_item button").forEach(botao => {
@@ -73,7 +70,11 @@ document.querySelectorAll(".investimento_item button").forEach(botao => {
     });
 
     informacoes_investimentos[index_investimento].classList.add("informar");
-    saldo_em_conta.innerText = saldo_restante;
+
+    let saldoNaInterface = informacoes_investimentos[index_investimento].querySelector(".saldo_em_conta");
+    if (saldoNaInterface) {
+      saldoNaInterface.innerText = saldo_restante.toFixed(2);
+    }
   });
 });
 
@@ -114,24 +115,28 @@ function confirmar_investimento(event) {
 
   saldoSpan.innerText = saldo_restante.toFixed(2);
 
+  // Atualiza saldo em resultado_escolha
+  const resultado = document.getElementById("resultado_escolha");
+  resultado.innerHTML = `Saldo Atual: R$ ${saldo_restante.toFixed(2)}`;
+  resultado.style.display = "block";
+
   bloco.querySelector(".investir").style.display = "none";
   botao.style.display = "none";
 
   resposta.innerText = "Investimento efetuado com sucesso!";
 }
 
-
-// Função que gera o extrato de gastos
 function gerarExtrato() {
   const lista = document.getElementById("lista_gastos_real");
   const totalText = document.getElementById("total_gastos_real");
+  const totalRestoText = document.getElementById("total_resto_real");
   lista.innerHTML = "";
 
   let total = 0;
 
   if (celularComprado) {
     const li = document.createElement("li");
-    li.textContent = `Celular: ${celularComprado.nome} - R$ ${celularComprado.valor.toFixed(2)}`;
+    li.textContent = `celular: ${celularComprado.nome} - R$ ${celularComprado.valor.toFixed(2)}`;
     lista.appendChild(li);
     total += celularComprado.valor;
   }
@@ -149,16 +154,17 @@ function gerarExtrato() {
     lista.appendChild(li);
   }
 
+  let resto = money - total;
   totalText.textContent = `Total Gasto: R$ ${total.toFixed(2)}`;
+  totalRestoText.textContent = `Total na Conta: R$ ${resto.toFixed(2)}`;
 }
 
-// Função que gera a conclusão do planejamento financeiro
 function gerarConclusao() {
   let texto = "";
 
-  if (valor_celular >= 3000) {
+  if (valor_celular >= 1500) {
     texto += "Você optou por um celular caro, o que compromete uma grande parte do seu orçamento. ";
-  } else if (valor_celular >= 1500) {
+  } else if (valor_celular >= 1200) {
     texto += "Você escolheu um celular de valor mediano, equilibrando custo e qualidade. ";
   } else {
     texto += "Você fez uma escolha econômica de celular, mantendo mais recursos disponíveis. ";
@@ -181,17 +187,15 @@ function gerarConclusao() {
   document.getElementById("texto_conclusao").innerText = texto;
 }
 
-// Muda o tema da página
 document.getElementById("toggleTema").addEventListener("click", function () {
-    document.body.classList.toggle("tema-claro");
+  document.body.classList.toggle("tema-claro");
 
-    
-    const btn = document.getElementById("toggleTema");
-    if (document.body.classList.contains("tema-claro")) {
-        btn.innerText = "🌞 Tema";
-    } else {
-        btn.innerText = "🌙 Tema";
-    }
+  const btn = document.getElementById("toggleTema");
+  if (document.body.classList.contains("tema-claro")) {
+    btn.innerText = "🌞 Tema";
+  } else {
+    btn.innerText = "🌙 Tema";
+  }
 });
 
 document.querySelectorAll(".confirmar_investimento").forEach(botao => {
