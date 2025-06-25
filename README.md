@@ -35,4 +35,4 @@ A feira foi um sucesso! Todos gostaram muito e deu pra gerar boas reflexões sob
 
 ---
 
-Desenvolvido por **Ícaro Xavier** e **Arthur Zarochisstki**, estudante de Desenvolvimento de Sistemas, designer nas horas vagas e curioso profissional 😎
+Desenvolvido por **Ícaro Xavier** e **Arthur Zarochisstki**, estudantes de Desenvolvimento de Sistemas
